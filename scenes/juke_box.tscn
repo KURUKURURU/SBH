@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://k17ab1n7vy0c"]
+
+[ext_resource type="AudioStream" uid="uid://cocdwuc7eyy6w" path="res://music/Dark/818410__mielitietty__magnetic-drone.wav" id="2_ffwcn"]
+[ext_resource type="AudioStream" uid="uid://orsnxn7n0atg" path="res://music/Dark/768420__boatlanman__diseased-piano-loop-100bpm.wav" id="2_qolht"]
+[ext_resource type="AudioStream" uid="uid://blmwy5btvk7gm" path="res://sfx/strongwinds.wav" id="3_q42sw"]
+[ext_resource type="AudioStream" uid="uid://b88wkprbrv6o0" path="res://music/untitled folder/755797__wkalmar__shoreline-healing(1).wav" id="3_qolht"]
+[ext_resource type="AudioStream" uid="uid://busgy7w82l11" path="res://sfx/660181__inkaj__car_passing_at_night4.wav" id="4_hooax"]
+[ext_resource type="AudioStream" uid="uid://3tgus76401xp" path="res://sfx/Movement/493354__joao_janz__clothes-rustling-movement-3_6.wav" id="4_wk4xq"]
+[ext_resource type="AudioStream" uid="uid://cnl1j6qdhyekw" path="res://sfx/vhsstart.mp3" id="5_epnb3"]
+[ext_resource type="AudioStream" uid="uid://ba7nts6mtlhll" path="res://sfx/Movement/429326__tomycatts__11-suspiro-2.wav" id="5_w1gii"]
+[ext_resource type="AudioStream" uid="uid://cixd6crkhgo5" path="res://sfx/click.wav" id="6_qolht"]
+
+[node name="JukeBox" type="Node2D"]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="ScaryAmbient" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_ffwcn")
+volume_db = -6.155
+pitch_scale = 1.5
+
+[node name="MorningMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_ffwcn")
+volume_db = -6.155
+pitch_scale = 1.5
+
+[node name="SmallPiano" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_qolht")
+volume_db = -26.708
+pitch_scale = 0.3
+
+[node name="CalmMorningMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_qolht")
+volume_db = -1.35
+pitch_scale = 0.94
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Bass1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_ffwcn")
+
+[node name="Wind" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_q42sw")
+volume_db = -9.44
+pitch_scale = 0.4
+
+[node name="Car" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_hooax")
+volume_db = -16.959
+pitch_scale = 1.15
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_qolht")
+volume_db = -6.174
+pitch_scale = 0.25
+
+[node name="VHS_start" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_epnb3")
+
+[node name="Movement" type="Node" parent="SFX"]
+
+[node name="Shuffle" type="AudioStreamPlayer" parent="SFX/Movement"]
+stream = ExtResource("4_wk4xq")
+
+[node name="Sigh" type="AudioStreamPlayer" parent="SFX/Movement"]
+stream = ExtResource("5_w1gii")

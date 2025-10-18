@@ -1,0 +1,251 @@
+[gd_scene load_steps=17 format=3 uid="uid://slgt01hj3j7o"]
+
+[ext_resource type="FontFile" uid="uid://cjwu65abufay6" path="res://fonts/charybdis/chary___.ttf" id="1_w7pau"]
+
+[sub_resource type="Animation" id="Animation_el7i4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqgn8"]
+_data = {
+&"RESET": SubResource("Animation_el7i4")
+}
+
+[sub_resource type="Animation" id="Animation_admyn"]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bufk4"]
+length = 4.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_dj0f1"]
+length = 2.002
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3pay5"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jhw0d"]
+resource_name = "redo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhw0d"]
+_data = {
+&"HUGE": SubResource("Animation_admyn"),
+&"Large": SubResource("Animation_bufk4"),
+&"Medium": SubResource("Animation_dj0f1"),
+&"Small": SubResource("Animation_3pay5"),
+&"redo": SubResource("Animation_jhw0d")
+}
+
+[sub_resource type="Animation" id="Animation_aqgn8"]
+resource_name = "Default"
+length = 3.494
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.494),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7pau"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7368836, 2.27),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.6, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_el7i4"]
+_data = {
+&"Default": SubResource("Animation_aqgn8"),
+&"I\'d like to know why.": SubResource("Animation_w7pau")
+}
+
+[sub_resource type="Animation" id="Animation_qy01v"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6ij1m"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-431, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k74xt"]
+resource_name = "Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(437, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3pay5"]
+_data = {
+&"Center": SubResource("Animation_qy01v"),
+&"Left": SubResource("Animation_6ij1m"),
+&"Right": SubResource("Animation_k74xt")
+}
+
+[node name="text_default_window" type="Node2D"]
+metadata/_edit_vertical_guides_ = [856.0, -15.0]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Panel3" type="ColorRect" parent="Node2D"]
+offset_left = -14.0
+offset_top = -6.0
+offset_right = 26.0
+offset_bottom = 34.0
+scale = Vector2(21.729, 2.8569999)
+
+[node name="Panel2" type="ColorRect" parent="Node2D"]
+offset_left = -9.0
+offset_right = 31.0
+offset_bottom = 40.0
+scale = Vector2(21.394814, 2.540268)
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="Node2D"]
+offset_left = 13.0
+offset_top = 14.000001
+offset_right = 161.0
+offset_bottom = 37.0
+scale = Vector2(1.9874959, 1.9874959)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_w7pau")
+text = "I don't think I have to stay hereI don't thi
+I don't think I have to stay here"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Text_Ratio_Animation" type="AnimationPlayer" parent="Node2D/Text"]
+libraries = {
+&"": SubResource("AnimationLibrary_aqgn8"),
+&"Modes": SubResource("AnimationLibrary_jhw0d"),
+&"Test": SubResource("AnimationLibrary_el7i4")
+}
+
+[node name="Window_Placement" type="AnimationPlayer" parent="Node2D/Text"]
+libraries = {
+&"": SubResource("AnimationLibrary_aqgn8"),
+&"Test": SubResource("AnimationLibrary_el7i4"),
+&"Text_Window_Placement": SubResource("AnimationLibrary_3pay5")
+}

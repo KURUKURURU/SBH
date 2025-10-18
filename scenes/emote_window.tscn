@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://chr2f3auxy2bq"]
+
+[ext_resource type="Texture2D" uid="uid://sacdtjp268j7" path="res://images/axel/window_emotes/axel_hold.png" id="1_0hjl5"]
+[ext_resource type="Texture2D" uid="uid://bqr8f8phe278h" path="res://images/axel/window_emotes/axel_sad.png" id="2_x11s7"]
+[ext_resource type="Texture2D" uid="uid://dwo1nx7wik6ad" path="res://images/axel/window_emotes/axel_smile.png" id="3_h3usj"]
+[ext_resource type="Texture2D" uid="uid://bbgvufk7p16cp" path="res://images/axel/window_emotes/axel_welp.png" id="4_0t275"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8g0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0hjl5")
+}],
+"loop": true,
+"name": &"hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x11s7")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h3usj")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0t275")
+}],
+"loop": true,
+"name": &"welp",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hjl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"welp",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0hjl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-417, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x11s7"]
+_data = {
+&"RESET": SubResource("Animation_0hjl5")
+}
+
+[sub_resource type="Animation" id="Animation_0t275"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h3usj"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-417, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u8g0u"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(417, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwgn3"]
+_data = {
+&"Center": SubResource("Animation_0t275"),
+&"Left": SubResource("Animation_h3usj"),
+&"Right": SubResource("Animation_u8g0u")
+}
+
+[node name="emote_window" type="Node2D"]
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(-417, 0)
+
+[node name="Panel2" type="ColorRect" parent="Node"]
+offset_left = -94.0
+offset_top = -112.99999
+offset_right = -54.0
+offset_bottom = -72.99999
+scale = Vector2(4.7736278, 5.9580793)
+
+[node name="Panel1" type="ColorRect" parent="Node"]
+offset_left = -90.40117
+offset_top = -109.57718
+offset_right = -50.40117
+offset_bottom = -69.57718
+scale = Vector2(4.5665517, 5.6996226)
+color = Color(0, 0, 0, 1)
+
+[node name="Axel" type="AnimatedSprite2D" parent="Node"]
+texture_filter = 1
+position = Vector2(0, 1.0885514e-07)
+scale = Vector2(0.7898655, 0.7898655)
+sprite_frames = SubResource("SpriteFrames_u8g0u")
+animation = &"sad"
+
+[node name="Killer" type="AnimatedSprite2D" parent="Node"]
+modulate = Color(0.18717614, 0.18717614, 0.18717614, 1)
+texture_filter = 1
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.9131431, 0.9131431)
+sprite_frames = SubResource("SpriteFrames_0hjl5")
+animation = &"hold"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x11s7"),
+&"Placement": SubResource("AnimationLibrary_vwgn3")
+}

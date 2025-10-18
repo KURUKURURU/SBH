@@ -1,0 +1,410 @@
+[gd_scene load_steps=18 format=3 uid="uid://dyl7so2ea0kr4"]
+
+[ext_resource type="Script" uid="uid://cb8thlm5a772b" path="res://scenes/house/tv_room.gd" id="1_6th0e"]
+[ext_resource type="Shader" uid="uid://6ygigjpsosn6" path="res://resources/VHSShader.gdshader" id="1_posbv"]
+[ext_resource type="FontFile" uid="uid://hccho44nl526" path="res://fonts/SerpentKnotform-ngag.ttf" id="2_oxdfi"]
+[ext_resource type="PackedScene" uid="uid://k17ab1n7vy0c" path="res://scenes/juke_box.tscn" id="4_qbqa5"]
+[ext_resource type="PackedScene" uid="uid://slgt01hj3j7o" path="res://scenes/text_default_window.tscn" id="5_37ekx"]
+[ext_resource type="PackedScene" uid="uid://dpmwid85nbosp" path="res://scenes/house/door.tscn" id="7_us6t4"]
+[ext_resource type="Texture2D" uid="uid://dquo2j28ok1ga" path="res://images/placeholders/Screenshot 2025-10-17 at 6.01.21 PM.png" id="7_v86y0"]
+[ext_resource type="PackedScene" uid="uid://bgtp13s4tk8oq" path="res://scenes/AxelSprite.tscn" id="8_us6t4"]
+
+[sub_resource type="Animation" id="Animation_37ekx"]
+resource_name = "fade"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5.01, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k673b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8gpgv"]
+_data = {
+&"RESET": SubResource("Animation_k673b"),
+&"fade": SubResource("Animation_37ekx")
+}
+
+[sub_resource type="Animation" id="Animation_v86y0"]
+resource_name = "FadeInFull"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 1.99, 4.5163875),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade/2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.99, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.32915837, 0.3291584, 0.3291584, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_us6t4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade/2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k673b"]
+_data = {
+&"FadeInFull": SubResource("Animation_v86y0"),
+&"RESET": SubResource("Animation_us6t4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3yew"]
+shader = ExtResource("1_posbv")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.470000022325
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.110000005225
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = -0.705
+shader_parameter/roll_size = 25.0070011878325
+shader_parameter/roll_variation = 3.30500015372762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0490000023275
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.190000009025
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.685
+shader_parameter/vignette_opacity = 0.2750000130625
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxdfi"]
+size = Vector2(19, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k673b"]
+size = Vector2(181, 58)
+
+[node name="TVRoom" type="Node2D"]
+script = ExtResource("1_6th0e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 10.0000305
+offset_top = 98.0
+offset_right = 50.00003
+offset_bottom = 138.0
+scale = Vector2(21.239378, 11.519379)
+color = Color(0.3306602, 0.27006748, 0.24576288, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 357.0
+offset_top = 98.0
+offset_right = 397.0
+offset_bottom = 138.0
+scale = Vector2(11.519379, 2.5193787)
+color = Color(0.20585272, 0.083445646, 0.08567155, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -100.0
+offset_top = 280.0
+offset_right = -60.0
+offset_bottom = 320.0
+scale = Vector2(11.519379, 2.5193787)
+color = Color(0.20585272, 0.083445646, 0.08567155, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="text_default_window" parent="CanvasLayer" instance=ExtResource("5_37ekx")]
+position = Vector2(302.55, 554)
+scale = Vector2(0.62763125, 0.62763125)
+
+[node name="interact" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 21.0
+offset_top = 589.0
+offset_right = 171.0
+offset_bottom = 629.0
+bbcode_enabled = true
+text = "[i]Press E to interact"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/interact"]
+libraries = {
+&"": SubResource("AnimationLibrary_8gpgv")
+}
+
+[node name="wakeup" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="wakeup"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.93358, 16.495304)
+
+[node name="fade" type="Node2D" parent="wakeup"]
+position = Vector2(243, 122.999985)
+scale = Vector2(0.56381387, 0.56381387)
+
+[node name="1" type="RichTextLabel" parent="wakeup/fade"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.75
+offset_top = 234.0
+offset_right = 951.25
+offset_bottom = 507.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_oxdfi")
+theme_override_font_sizes/normal_font_size = 145
+bbcode_enabled = true
+text = "wake up"
+horizontal_alignment = 1
+
+[node name="2" type="RichTextLabel" parent="wakeup/fade"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 388.42606
+offset_top = 404.38885
+offset_right = 694.6433
+offset_bottom = 538.42004
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2770532, 1.2770532)
+theme_override_fonts/normal_font = ExtResource("2_oxdfi")
+theme_override_font_sizes/normal_font_size = 65
+text = "press space"
+horizontal_alignment = 1
+
+[node name="fadeanim" type="AnimationPlayer" parent="wakeup"]
+libraries = {
+&"": SubResource("AnimationLibrary_k673b")
+}
+
+[node name="VHS Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader"]
+material = SubResource("ShaderMaterial_i3yew")
+offset_left = -0.99999905
+offset_top = -2.999998
+offset_right = 1248.0
+offset_bottom = 699.0
+scale = Vector2(0.9299366, 0.92993647)
+
+[node name="JukeBox" parent="." instance=ExtResource("4_qbqa5")]
+position = Vector2(569, 331)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="ColorRect" type="StaticBody2D" parent="Node"]
+position = Vector2(353, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/ColorRect"]
+position = Vector2(-2.5, 158)
+scale = Vector2(1, 22.32)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/ColorRect"]
+position = Vector2(-216, 374.99997)
+rotation = -1.5699495
+scale = Vector2(1, 22.32)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="ColorRect" type="ColorRect" parent="Node/ColorRect"]
+offset_left = -655.99994
+offset_top = -154.99998
+offset_right = -615.99994
+offset_bottom = -122.196205
+scale = Vector2(16.600002, 13.443573)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="StaticBody2D" parent="Node"]
+position = Vector2(816, 649)
+rotation = 3.1415925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/ColorRect2"]
+position = Vector2(0, 321)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="ColorRect" type="ColorRect" parent="Node/ColorRect2"]
+offset_left = -655.99994
+offset_top = 1.0
+offset_right = -615.99994
+offset_bottom = 41.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="StaticBody2D" parent="Node"]
+position = Vector2(266, 543)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/ColorRect3"]
+position = Vector2(0, 321)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="ColorRect" type="ColorRect" parent="Node/ColorRect3"]
+offset_left = -655.99994
+offset_top = -384.00003
+offset_right = -615.99994
+offset_bottom = -344.00003
+scale = Vector2(16.600002, 32.280006)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="StaticBody2D" parent="Node"]
+position = Vector2(917, 95)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/ColorRect4"]
+position = Vector2(96.99999, 398)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/ColorRect4"]
+position = Vector2(358.00006, 917.00006)
+rotation = 1.5704544
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_oxdfi")
+
+[node name="ColorRect" type="ColorRect" parent="Node/ColorRect4"]
+offset_left = -655.99994
+offset_top = 1.0
+offset_right = -615.99994
+offset_bottom = 41.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node/ColorRect4"]
+offset_left = -65.0
+offset_top = 906.0
+offset_right = -25.0
+offset_bottom = 946.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Node"]
+offset_left = -308.0
+offset_top = -651.0
+offset_right = -268.0
+offset_bottom = -611.0
+scale = Vector2(45.68175, 16.917076)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Node"]
+offset_left = -308.0
+offset_top = 630.0
+offset_right = -268.0
+offset_bottom = 670.0
+scale = Vector2(45.68175, 16.917076)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Node"]
+offset_left = -274.00012
+offset_top = -609.0
+offset_right = -234.00012
+offset_bottom = -569.0
+rotation = 1.3593287
+scale = Vector2(45.68175, 16.917076)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Node"]
+offset_left = 1775.0
+offset_top = -609.0
+offset_right = 1815.0
+offset_bottom = -569.0
+rotation = 1.3593287
+scale = Vector2(45.68175, 16.917076)
+color = Color(0, 0, 0, 1)
+
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture"]
+
+[node name="TextureRect" type="TextureRect" parent="Furniture/StaticBody2D"]
+self_modulate = Color(0.3388723, 0.3713298, 0.31492186, 1)
+offset_left = 451.0
+offset_top = 122.0
+offset_right = 700.0
+offset_bottom = 266.0
+texture = ExtResource("7_v86y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/StaticBody2D"]
+position = Vector2(581, 224)
+shape = SubResource("RectangleShape2D_k673b")
+
+[node name="Doors" type="Node2D" parent="Furniture"]
+
+[node name="Bathroom" parent="Furniture/Doors" instance=ExtResource("7_us6t4")]
+position = Vector2(274, 361)
+
+[node name="JoRoom" parent="Furniture/Doors" instance=ExtResource("7_us6t4")]
+position = Vector2(103, 361)
+
+[node name="Axel" parent="." instance=ExtResource("8_us6t4")]
+position = Vector2(577.00006, 222)
+
+[node name="Camera2D" type="Camera2D" parent="Axel"]
+zoom = Vector2(1.16, 1.16)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.8776339, 0.4864279, 0.15833816, 1)

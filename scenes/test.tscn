@@ -1,0 +1,194 @@
+[gd_scene load_steps=19 format=3 uid="uid://dyiqdpj7qm6xo"]
+
+[ext_resource type="Script" uid="uid://b1y20vt5trl6w" path="res://scenes/test.gd" id="1_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://chr2f3auxy2bq" path="res://scenes/emote_window.tscn" id="2_bl13t"]
+[ext_resource type="Texture2D" uid="uid://cpy7lfsykdffy" path="res://setting/test.png" id="2_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://slgt01hj3j7o" path="res://scenes/text_default_window.tscn" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://k17ab1n7vy0c" path="res://scenes/juke_box.tscn" id="4_74lek"]
+[ext_resource type="Texture2D" uid="uid://b0q0gwy050g4c" path="res://icon.svg" id="4_jcd4p"]
+[ext_resource type="Texture2D" uid="uid://bhyk2tbowx5up" path="res://images/axel/animations/New Piskel(2).png" id="6_at5dv"]
+[ext_resource type="Shader" uid="uid://6ygigjpsosn6" path="res://resources/VHSShader.gdshader" id="6_lpvoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcd4p"]
+atlas = ExtResource("6_at5dv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacia"]
+atlas = ExtResource("6_at5dv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk7ts"]
+atlas = ExtResource("6_at5dv")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajshl"]
+atlas = ExtResource("6_at5dv")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghpyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcd4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk7ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajshl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_at5dv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jcd4p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jcd4p"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uacia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yk7ts"]
+_data = {
+&"Fade_IN": SubResource("Animation_jcd4p"),
+&"RESET": SubResource("Animation_uacia")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_at5dv"]
+shader = ExtResource("6_lpvoh")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.11200000532
+shader_parameter/scanlines_width = 0.3650000173375
+shader_parameter/grille_opacity = 0.2450000116375
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = -3.64
+shader_parameter/roll_size = 22.7070010785825
+shader_parameter/roll_variation = 1.31000005896512
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0490000023275
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.190000009025
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.685
+shader_parameter/vignette_opacity = 0.2750000130625
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_j5jx5")
+
+[node name="PlainBG" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 31.0
+offset_bottom = 31.0
+scale = Vector2(29.160055, 16.560055)
+color = Color(0, 0, 0, 1)
+
+[node name="TwoShot" type="TextureRect" parent="."]
+modulate = Color(0.61104935, 0.6826681, 0.7357091, 1)
+texture_filter = 1
+offset_left = -101.0
+offset_top = 14.0
+offset_right = 590.0
+offset_bottom = 403.0
+scale = Vector2(2.0052857, 2.0052857)
+texture = ExtResource("2_lpvoh")
+
+[node name="Filter" type="ColorRect" parent="."]
+visible = false
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 31.0
+offset_bottom = 31.0
+scale = Vector2(29.160055, 16.560055)
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
+position = Vector2(560.00006, 283.00003)
+scale = Vector2(0.50978327, 0.50978327)
+sprite_frames = SubResource("SpriteFrames_ghpyy")
+
+[node name="CarScene" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(591, 328)
+scale = Vector2(9.818688, 9.818688)
+sprite_frames = SubResource("SpriteFrames_at5dv")
+
+[node name="Fade" type="AnimationPlayer" parent="CarScene"]
+libraries = {
+&"": SubResource("AnimationLibrary_yk7ts")
+}
+
+[node name="emote_window" parent="." instance=ExtResource("2_bl13t")]
+position = Vector2(563, 420)
+
+[node name="text_default_window" parent="." instance=ExtResource("3_iyx0m")]
+position = Vector2(302, 554)
+scale = Vector2(0.6256614, 0.6256614)
+
+[node name="JukeBox" parent="." instance=ExtResource("4_74lek")]
+position = Vector2(-150, -64)
+
+[node name="VHS Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader"]
+material = SubResource("ShaderMaterial_at5dv")
+offset_left = -0.99999905
+offset_top = -2.999998
+offset_right = 1248.0
+offset_bottom = 699.0
+scale = Vector2(0.9299366, 0.92993647)
+
+[node name="WhiteFADE" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.043636, 16.403633)
+
+[node name="Fade" type="AnimationPlayer" parent="WhiteFADE"]
+libraries = {
+&"": SubResource("AnimationLibrary_yk7ts")
+}

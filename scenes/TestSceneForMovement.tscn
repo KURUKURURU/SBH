@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckcg53gbkxchy"]
+
+[ext_resource type="PackedScene" uid="uid://bgtp13s4tk8oq" path="res://scenes/AxelSprite.tscn" id="1_thvhy"]
+[ext_resource type="Texture2D" uid="uid://dquo2j28ok1ga" path="res://images/placeholders/Screenshot 2025-10-17 at 6.01.21 PM.png" id="2_hxxbs"]
+[ext_resource type="Shader" uid="uid://6ygigjpsosn6" path="res://resources/VHSShader.gdshader" id="2_t6jri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6jri"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxxbs"]
+shader = ExtResource("2_t6jri")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.470000022325
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.110000005225
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = -0.705
+shader_parameter/roll_size = 25.0070011878325
+shader_parameter/roll_variation = 3.30500015372762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0490000023275
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.190000009025
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.685
+shader_parameter/vignette_opacity = 0.2750000130625
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eyt1"]
+size = Vector2(120.5, 61.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_top = 201.0
+offset_right = 1142.0
+offset_bottom = 831.0
+color = Color(0.22147486, 0.112318195, 0.039060198, 1)
+
+[node name="VHS Shader" type="CanvasLayer" parent="."]
+
+[node name="Node" type="Node" parent="VHS Shader"]
+
+[node name="ColorRect" type="StaticBody2D" parent="VHS Shader/Node"]
+position = Vector2(353, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VHS Shader/Node/ColorRect"]
+position = Vector2(0, 321)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_t6jri")
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader/Node/ColorRect"]
+offset_left = -655.99994
+offset_top = -154.99998
+offset_right = -615.99994
+offset_bottom = -114.999985
+scale = Vector2(16.600002, 21.562721)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="StaticBody2D" parent="VHS Shader/Node"]
+position = Vector2(816, 649)
+rotation = -3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VHS Shader/Node/ColorRect2"]
+position = Vector2(0, 321)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_t6jri")
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader/Node/ColorRect2"]
+offset_left = -655.99994
+offset_top = 1.0
+offset_right = -615.99994
+offset_bottom = 41.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="StaticBody2D" parent="VHS Shader/Node"]
+position = Vector2(266, 543)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VHS Shader/Node/ColorRect3"]
+position = Vector2(0, 321)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_t6jri")
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader/Node/ColorRect3"]
+offset_left = -655.99994
+offset_top = 1.0
+offset_right = -615.99994
+offset_bottom = 41.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="StaticBody2D" parent="VHS Shader/Node"]
+position = Vector2(917, 95)
+rotation = -4.712389
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VHS Shader/Node/ColorRect4"]
+position = Vector2(96.99999, 398)
+scale = Vector2(1, 35.8)
+shape = SubResource("RectangleShape2D_t6jri")
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader/Node/ColorRect4"]
+offset_left = -655.99994
+offset_top = 1.0
+offset_right = -615.99994
+offset_bottom = 41.0
+scale = Vector2(16.600002, 16.600002)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VHS Shader"]
+material = SubResource("ShaderMaterial_hxxbs")
+offset_left = -0.99999905
+offset_top = -2.999998
+offset_right = 1248.0
+offset_bottom = 699.0
+scale = Vector2(0.9299366, 0.92993647)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1142.0
+offset_bottom = 630.0
+color = Color(0.15881431, 0.08991002, 0.024509285, 0.5411765)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(570, 208)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+modulate = Color(0.22297466, 0.11853687, 0.031709127, 1)
+offset_left = -78.0
+offset_top = -6.0
+offset_right = 171.0
+offset_bottom = 138.0
+scale = Vector2(0.6821244, 0.6821244)
+texture = ExtResource("2_hxxbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.75, 46.25)
+shape = SubResource("RectangleShape2D_2eyt1")
+
+[node name="Axel" parent="." instance=ExtResource("1_thvhy")]
+modulate = Color(0.742481, 0.36271074, 0.34351954, 1)
+position = Vector2(568, 377)

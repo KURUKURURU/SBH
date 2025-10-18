@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvgy1p4viwfbg"
+path="res://.godot/imported/745909__khoeppel__calm-piano_shortmelody_2024.mp3-2fa9d567eff35bf257d0538f374f5ab4.mp3str"
+
+[deps]
+
+source_file="res://music/untitled folder/745909__khoeppel__calm-piano_shortmelody_2024.mp3"
+dest_files=["res://.godot/imported/745909__khoeppel__calm-piano_shortmelody_2024.mp3-2fa9d567eff35bf257d0538f374f5ab4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

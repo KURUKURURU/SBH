@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbk4qpe5lo4p6"]
+
+[ext_resource type="Texture2D" uid="uid://bno7mdjq5qjmv" path="res://ph/d49ebcbb236dcb3fe9f81bac7b498014.jpg" id="1_2pm8d"]
+[ext_resource type="Script" uid="uid://dy1x4voyu2417" path="res://scenes/jo_room.gd" id="1_fwvul"]
+[ext_resource type="AudioStream" uid="uid://blmwy5btvk7gm" path="res://sfx/strongwinds.wav" id="2_liewk"]
+[ext_resource type="Texture2D" uid="uid://d0wkxlmofccmu" path="res://ph/istockphoto-2151265136-612x612-removebg-preview.png" id="4_7juse"]
+[ext_resource type="PackedScene" uid="uid://bjp1b6hm65me1" path="res://scenes/label.tscn" id="5_nfb0p"]
+[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="6_7juse"]
+
+[node name="JoRoom" type="Node2D"]
+script = ExtResource("1_fwvul")
+
+[node name="MainTexture" type="TextureRect" parent="."]
+offset_top = -47.0
+offset_right = 736.0
+offset_bottom = 504.0
+scale = Vector2(1.56153, 1.4422091)
+texture = ExtResource("1_2pm8d")
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="MainTexture"]
+position = Vector2(493.7465, 200.38702)
+stream = ExtResource("2_liewk")
+volume_db = 1.01
+autoplay = true
+panning_strength = 2.08
+bus = &"SFX"
+
+[node name="Hallway" type="TextureButton" parent="."]
+offset_right = 265.7263
+offset_bottom = 348.79895
+scale = Vector2(0.40643328, 1.7431245)
+texture_hover = ExtResource("4_7juse")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Label" parent="." instance=ExtResource("5_nfb0p")]
+offset_left = -1.0
+offset_top = 608.0
+offset_right = 278.74936
+offset_bottom = 648.0
+
+[node name="Closet" type="TextureButton" parent="."]
+offset_left = 250.0
+offset_top = 136.0
+offset_right = 349.0
+offset_bottom = 413.0
+
+[node name="Jo" type="Node2D" parent="."]
+
+[node name="JoWake" type="TextureButton" parent="Jo"]
+offset_left = 92.99999
+offset_top = 377.00003
+offset_right = 605.0
+offset_bottom = 889.0
+rotation = 0.16751349
+scale = Vector2(0.53899187, 0.19769254)
+texture_normal = ExtResource("6_7juse")
+
+[node name="JoDressed" type="TextureButton" parent="Jo"]
+visible = false
+offset_left = 614.0
+offset_top = 285.0
+offset_right = 1126.0
+offset_bottom = 797.0
+rotation = -0.019991979
+scale = Vector2(0.22727637, 0.5353539)
+texture_normal = ExtResource("6_7juse")
+
+[connection signal="mouse_entered" from="Hallway" to="." method="_on_hallway_mouse_entered"]
+[connection signal="mouse_exited" from="Hallway" to="." method="_on_hallway_mouse_exited"]
+[connection signal="pressed" from="Hallway" to="." method="_on_hallway_pressed"]
+[connection signal="mouse_entered" from="Closet" to="." method="_on_closet_mouse_entered"]
+[connection signal="mouse_exited" from="Closet" to="." method="_on_closet_mouse_exited"]
+[connection signal="pressed" from="Closet" to="." method="_on_closet_pressed"]
+[connection signal="mouse_entered" from="Jo/JoWake" to="." method="_on_jo_wake_mouse_entered"]
+[connection signal="mouse_exited" from="Jo/JoWake" to="." method="_on_jo_wake_mouse_exited"]
+[connection signal="pressed" from="Jo/JoWake" to="." method="_on_jo_wake_pressed"]
+[connection signal="mouse_entered" from="Jo/JoDressed" to="." method="_on_jo_dressed_mouse_entered"]
+[connection signal="mouse_exited" from="Jo/JoDressed" to="." method="_on_jo_wake_mouse_exited"]

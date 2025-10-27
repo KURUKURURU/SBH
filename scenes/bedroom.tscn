@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://csja4fq7an5o5"]
+
+[ext_resource type="Texture2D" uid="uid://dhidq14yg7rny" path="res://ph/40bb44d05c4a289cbea45f73a9013134.jpg" id="1_2f21x"]
+[ext_resource type="Script" uid="uid://dg31nfdvw3hm6" path="res://scenes/bedroom.gd" id="1_mkmp1"]
+[ext_resource type="PackedScene" uid="uid://bjp1b6hm65me1" path="res://scenes/label.tscn" id="2_bx5pa"]
+[ext_resource type="Texture2D" uid="uid://d0wkxlmofccmu" path="res://ph/istockphoto-2151265136-612x612-removebg-preview.png" id="3_0grwd"]
+[ext_resource type="AudioStream" uid="uid://blmwy5btvk7gm" path="res://sfx/strongwinds.wav" id="3_tjgix"]
+[ext_resource type="Texture2D" uid="uid://nhawjwvn2hca" path="res://ph/b3359b14-fb93-4ecc-b1f9-5dc96db43b89.58124dc939cc164c7bdac45ba4be4c15-removebg-preview.png" id="5_7lolw"]
+[ext_resource type="AudioStream" uid="uid://c83fbexoqhafs" path="res://sfx/428221__leoctiurs__2-alarm.wav" id="6_pwtdf"]
+[ext_resource type="Texture2D" uid="uid://b4j23iifr4i70" path="res://ph/1CLEARGLASS1_42cf77b6-0842-4922-be97-8f17f1124df0.webp" id="8_xunnl"]
+[ext_resource type="Texture2D" uid="uid://d24v6ha3pkadx" path="res://ph/8850b986f4f5b87e2d9b64a394db1588.jpg" id="9_0w1sy"]
+[ext_resource type="Texture2D" uid="uid://cnau2xc14xod8" path="res://ph/cb9b97f626cb96262d44ad9c26d011e2.jpg" id="9_hdjrh"]
+[ext_resource type="AudioStream" uid="uid://pt7crkjg6r6f" path="res://sfx/789038__mediasaur__fabric_foley_1.wav" id="10_lj4hb"]
+
+[node name="bedroom" type="Node2D"]
+script = ExtResource("1_mkmp1")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.001604, 1.5208408)
+texture = ExtResource("1_2f21x")
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Background"]
+position = Vector2(17.485975, 178.19092)
+stream = ExtResource("3_tjgix")
+volume_db = 1.01
+autoplay = true
+panning_strength = 2.08
+bus = &"SFX"
+
+[node name="Right" type="TextureButton" parent="."]
+offset_left = 1039.0001
+offset_top = 61.0
+offset_right = 1539.0001
+offset_bottom = 2582.2722
+scale = Vector2(0.22131681, 0.22131681)
+texture_hover = ExtResource("3_0grwd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Alarm" type="TextureButton" parent="."]
+offset_left = 253.0
+offset_top = 384.0
+offset_right = 752.0
+offset_bottom = 884.0
+scale = Vector2(0.18522221, 0.18522221)
+texture_normal = ExtResource("5_7lolw")
+
+[node name="noise" type="AudioStreamPlayer2D" parent="Alarm"]
+position = Vector2(242.95143, 237.5525)
+stream = ExtResource("6_pwtdf")
+volume_db = 15.146
+bus = &"SFX"
+
+[node name="ClosetMask" type="TextureButton" parent="."]
+offset_left = 482.0
+offset_top = 136.0
+offset_right = 1562.0
+offset_bottom = 1216.0
+scale = Vector2(0.31763542, 0.31763542)
+texture_normal = ExtResource("8_xunnl")
+
+[node name="ClosetPanel" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ClosetPanel"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.912575, 16.50865)
+color = Color(0.6431373, 0.6156863, 0.58431375, 1)
+
+[node name="Closet" type="TextureRect" parent="ClosetPanel"]
+offset_left = 192.00005
+offset_right = 911.00006
+offset_bottom = 1200.0
+scale = Vector2(0.5430629, 0.5430629)
+texture = ExtResource("9_0w1sy")
+
+[node name="DressButton" type="TextureButton" parent="ClosetPanel"]
+offset_left = 231.99998
+offset_top = 31.999998
+offset_right = 272.0
+offset_bottom = 72.0
+scale = Vector2(7.734464, 7.8775396)
+
+[node name="Mirror" type="TextureRect" parent="ClosetPanel"]
+offset_left = 575.0
+offset_right = 1294.0
+offset_bottom = 1200.0
+scale = Vector2(0.5430629, 0.5430629)
+texture = ExtResource("9_hdjrh")
+
+[node name="Back" type="TextureButton" parent="ClosetPanel"]
+offset_left = 134.0
+offset_top = 555.0
+offset_right = 634.0
+offset_bottom = 1055.0
+scale = Vector2(1.7808534, 0.1130614)
+texture_hover = ExtResource("3_0grwd")
+
+[node name="dressedNoise" type="AudioStreamPlayer2D" parent="ClosetPanel"]
+position = Vector2(571, 495)
+stream = ExtResource("10_lj4hb")
+bus = &"SFX"
+
+[node name="Label" parent="." instance=ExtResource("2_bx5pa")]
+offset_left = 1.000061
+offset_top = 610.0
+offset_right = 280.74942
+offset_bottom = 650.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Right" to="." method="right_hover"]
+[connection signal="mouse_exited" from="Right" to="." method="right_hover_end"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="mouse_entered" from="Alarm" to="." method="_on_alarm_mouse_entered"]
+[connection signal="mouse_exited" from="Alarm" to="." method="_on_alarm_mouse_exited"]
+[connection signal="pressed" from="Alarm" to="." method="_on_alarm_pressed"]
+[connection signal="mouse_entered" from="ClosetMask" to="." method="closettouch"]
+[connection signal="mouse_exited" from="ClosetMask" to="." method="_on_closet_mask_mouse_exited"]
+[connection signal="pressed" from="ClosetMask" to="." method="_on_closet_mask_pressed"]
+[connection signal="mouse_entered" from="ClosetPanel/DressButton" to="." method="_on_dress_button_mouse_entered"]
+[connection signal="mouse_exited" from="ClosetPanel/DressButton" to="." method="_on_dress_button_mouse_exited"]
+[connection signal="pressed" from="ClosetPanel/DressButton" to="." method="_on_dress_button_pressed"]
+[connection signal="mouse_entered" from="ClosetPanel/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="ClosetPanel/Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="ClosetPanel/Back" to="." method="_on_back_pressed"]

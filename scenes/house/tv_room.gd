@@ -22,6 +22,10 @@ extends Node2D
 @onready var morning = $JukeBox/Music/CalmMorningMusic
 @onready var wind = $JukeBox/SFX/Wind
 
+@onready var default_scene_node = self
+var new_scene_instance
+
+
 var done = false
 
 
@@ -71,7 +75,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	if bathdoor.overlaps_body(axel):
 		if Input.is_action_just_pressed("interact"):
-			get_tree().change_scene_to_file("uid://b1p8cinlmeh6y")
+			get_tree().change_scene_to_file("uid://daj3hpg45rk0h")
 	if jodoor.overlaps_body(axel):
 		if Input.is_action_just_pressed("interact"):
 			get_tree().change_scene_to_file("uid://daj3hpg45rk0h")
@@ -150,3 +154,24 @@ func text(maintext: String, mode: String, seconds: float) -> void: #Actual text,
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+
+#func open_new_scene():
+	#get_tree().paused = true  # pause the old scene
+#
+	#var new_scene = preload("uid://b1p8cinlmeh6y").instantiate()
+	#
+#
+	#var layer = CanvasLayer.new()
+	#layer.add_child(new_scene)
+	#add_child(layer)
+#
+	## Optional: let the new scene run until it emits a signal to exit
+	## But for now, we just wait a bit to simulate time spent inside it
+	#await wait(3.0)
+#
+	## Remove the new scene cleanly
+	#layer.queue_free()
+#
+	#get_tree().paused = false
+	

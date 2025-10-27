@@ -1,13 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyiqdpj7qm6xo"]
+[gd_scene load_steps=21 format=3 uid="uid://dyiqdpj7qm6xo"]
 
 [ext_resource type="Script" uid="uid://b1y20vt5trl6w" path="res://scenes/test.gd" id="1_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://chr2f3auxy2bq" path="res://scenes/emote_window.tscn" id="2_bl13t"]
-[ext_resource type="Texture2D" uid="uid://cpy7lfsykdffy" path="res://setting/test.png" id="2_lpvoh"]
+[ext_resource type="Texture2D" uid="uid://cgi4ewfgtu8m4" path="res://images/placeholders/twoshot_placeholder.jpg" id="2_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://slgt01hj3j7o" path="res://scenes/text_default_window.tscn" id="3_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://k17ab1n7vy0c" path="res://scenes/juke_box.tscn" id="4_74lek"]
 [ext_resource type="Texture2D" uid="uid://b0q0gwy050g4c" path="res://icon.svg" id="4_jcd4p"]
 [ext_resource type="Texture2D" uid="uid://bhyk2tbowx5up" path="res://images/axel/animations/New Piskel(2).png" id="6_at5dv"]
 [ext_resource type="Shader" uid="uid://6ygigjpsosn6" path="res://resources/VHSShader.gdshader" id="6_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://bjp1b6hm65me1" path="res://scenes/label.tscn" id="9_uacia"]
+[ext_resource type="AudioStream" uid="uid://chmeciqb5egdw" path="res://sfx/826813__rohhsa__sharp-innovative-multimedia-hit.wav" id="10_yk7ts"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcd4p"]
 atlas = ExtResource("6_at5dv")
@@ -100,19 +102,19 @@ shader_parameter/grille_opacity = 0.2450000116375
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
 shader_parameter/roll = true
-shader_parameter/roll_speed = -3.64
-shader_parameter/roll_size = 22.7070010785825
+shader_parameter/roll_speed = -0.73
+shader_parameter/roll_size = 15.0
 shader_parameter/roll_variation = 1.31000005896512
 shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.110000005225
+shader_parameter/noise_opacity = 1.0
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.0490000023275
-shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/static_noise_intensity = 0.0950000045125
+shader_parameter/aberration = -0.00499995273749998
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.190000009025
+shader_parameter/warp_amount = 0.330000015675
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.685
+shader_parameter/vignette_intensity = 0.765
 shader_parameter/vignette_opacity = 0.2750000130625
 
 [node name="Test" type="Node2D"]
@@ -129,12 +131,12 @@ color = Color(0, 0, 0, 1)
 [node name="TwoShot" type="TextureRect" parent="."]
 modulate = Color(0.61104935, 0.6826681, 0.7357091, 1)
 texture_filter = 1
-offset_left = -101.0
-offset_top = 14.0
-offset_right = 590.0
-offset_bottom = 403.0
-scale = Vector2(2.0052857, 2.0052857)
-texture = ExtResource("2_lpvoh")
+offset_left = 120.00001
+offset_top = 56.999996
+offset_right = 811.0
+offset_bottom = 446.0
+scale = Vector2(1.3175184, 1.3175184)
+texture = ExtResource("2_jcd4p")
 
 [node name="Filter" type="ColorRect" parent="."]
 visible = false
@@ -146,6 +148,7 @@ scale = Vector2(29.160055, 16.560055)
 color = Color(0, 0, 0, 0.50980395)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
 position = Vector2(560.00006, 283.00003)
 scale = Vector2(0.50978327, 0.50978327)
@@ -163,7 +166,7 @@ libraries = {
 }
 
 [node name="emote_window" parent="." instance=ExtResource("2_bl13t")]
-position = Vector2(563, 420)
+position = Vector2(563, 1203)
 
 [node name="text_default_window" parent="." instance=ExtResource("3_iyx0m")]
 position = Vector2(302, 554)
@@ -173,6 +176,7 @@ scale = Vector2(0.6256614, 0.6256614)
 position = Vector2(-150, -64)
 
 [node name="VHS Shader" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="VHS Shader"]
 material = SubResource("ShaderMaterial_at5dv")
@@ -192,3 +196,16 @@ scale = Vector2(29.043636, 16.403633)
 libraries = {
 &"": SubResource("AnimationLibrary_yk7ts")
 }
+
+[node name="Label" parent="." instance=ExtResource("9_uacia")]
+visible = false
+offset_left = 93.0
+offset_top = 359.0
+offset_right = 133.0
+offset_bottom = 399.0
+scale = Vector2(3.464524, 0.82308906)
+
+[node name="bing" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(182, 582)
+stream = ExtResource("10_yk7ts")
+volume_db = -12.116

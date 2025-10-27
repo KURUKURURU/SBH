@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cob825eimiql2"]
+
+[ext_resource type="Script" uid="uid://cbrcoaerqt5mc" path="res://scenes/loading___.gd" id="1_724tu"]
+
+[node name="Loading___" type="Node2D"]
+script = ExtResource("1_724tu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -9.0
+offset_right = 35.0
+offset_bottom = 31.0
+scale = Vector2(29.104969, 16.52351)

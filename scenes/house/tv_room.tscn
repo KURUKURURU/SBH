@@ -9,6 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://dquo2j28ok1ga" path="res://images/placeholders/Screenshot 2025-10-17 at 6.01.21 PM.png" id="7_v86y0"]
 [ext_resource type="PackedScene" uid="uid://bgtp13s4tk8oq" path="res://scenes/AxelSprite.tscn" id="8_us6t4"]
 
+[sub_resource type="Animation" id="Animation_k673b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_37ekx"]
 resource_name = "fade"
 length = 7.0
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_k673b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8gpgv"]
@@ -167,6 +167,7 @@ color = Color(0.20585272, 0.083445646, 0.08567155, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="text_default_window" parent="CanvasLayer" instance=ExtResource("5_37ekx")]
+visible = false
 position = Vector2(302.55, 554)
 scale = Vector2(0.62763125, 0.62763125)
 

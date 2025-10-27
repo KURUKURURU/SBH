@@ -16,51 +16,62 @@
 
 [node name="ScaryAmbient" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_ffwcn")
-volume_db = -6.155
+volume_db = -21.129
 pitch_scale = 1.5
+bus = &"Music"
 
 [node name="MorningMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_ffwcn")
 volume_db = -6.155
 pitch_scale = 1.5
+bus = &"Music"
 
 [node name="SmallPiano" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_qolht")
-volume_db = -26.708
+volume_db = -17.167
 pitch_scale = 0.3
+bus = &"Music"
 
 [node name="CalmMorningMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("3_qolht")
 volume_db = -1.35
 pitch_scale = 0.94
+bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]
 
 [node name="Bass1" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_ffwcn")
+bus = &"SFX"
 
 [node name="Wind" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_q42sw")
 volume_db = -9.44
 pitch_scale = 0.4
+bus = &"SFX"
 
 [node name="Car" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_hooax")
 volume_db = -16.959
 pitch_scale = 1.15
+bus = &"SFX"
 
 [node name="Click" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_qolht")
 volume_db = -6.174
 pitch_scale = 0.25
+bus = &"SFX"
 
 [node name="VHS_start" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_epnb3")
+bus = &"SFX"
 
 [node name="Movement" type="Node" parent="SFX"]
 
 [node name="Shuffle" type="AudioStreamPlayer" parent="SFX/Movement"]
 stream = ExtResource("4_wk4xq")
+bus = &"SFX"
 
 [node name="Sigh" type="AudioStreamPlayer" parent="SFX/Movement"]
 stream = ExtResource("5_w1gii")
+bus = &"SFX"

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddpssu5uudwxq"]
+
+[ext_resource type="Texture2D" uid="uid://cjt6okp8t2enc" path="res://ph/c7a83197184d10bf210fcd782c75bf4b.jpg" id="1_ax3ax"]
+[ext_resource type="Script" uid="uid://cci1fna27yik6" path="res://scenes/hall.gd" id="1_f612h"]
+[ext_resource type="Texture2D" uid="uid://d0wkxlmofccmu" path="res://ph/istockphoto-2151265136-612x612-removebg-preview.png" id="3_jeex6"]
+[ext_resource type="AudioStream" uid="uid://c83fbexoqhafs" path="res://sfx/428221__leoctiurs__2-alarm.wav" id="4_jeex6"]
+[ext_resource type="PackedScene" uid="uid://slgt01hj3j7o" path="res://scenes/text_default_window.tscn" id="5_3bgyu"]
+[ext_resource type="PackedScene" uid="uid://bjp1b6hm65me1" path="res://scenes/label.tscn" id="6_q1d8p"]
+
+[node name="Hall" type="Node2D"]
+script = ExtResource("1_f612h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 31.0
+offset_bottom = 32.0
+scale = Vector2(29.222122, 16.630886)
+color = Color(0.09019608, 0.050980393, 0.03137255, 1)
+
+[node name="Hall" type="TextureRect" parent="."]
+offset_left = 313.00003
+offset_right = 1165.0
+offset_bottom = 1136.0
+scale = Vector2(0.5970786, 0.5970786)
+texture = ExtResource("1_ax3ax")
+
+[node name="Right" type="TextureButton" parent="."]
+offset_left = 23.000183
+offset_top = 61.0
+offset_right = 523.0002
+offset_bottom = 2582.2722
+scale = Vector2(0.22131681, 0.22131681)
+texture_hover = ExtResource("3_jeex6")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Alarm_noise" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-373, 267)
+stream = ExtResource("4_jeex6")
+volume_db = -1.01
+panning_strength = 1.82
+
+[node name="text_default_window" parent="." instance=ExtResource("5_3bgyu")]
+position = Vector2(302, 532)
+scale = Vector2(0.6256614, 0.6256614)
+
+[node name="Label" parent="." instance=ExtResource("6_q1d8p")]
+offset_left = -1.0
+offset_top = 608.0
+offset_right = 278.74936
+offset_bottom = 648.0
+
+[node name="JoBedroom" type="TextureButton" parent="."]
+offset_left = 449.0
+offset_top = 71.0
+offset_right = 489.0
+offset_bottom = 111.0
+scale = Vector2(0.11761598, 0.9260966)
+texture_hover = ExtResource("3_jeex6")
+
+[connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="Right" to="." method="_on_right_mouse_exited"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="mouse_entered" from="JoBedroom" to="." method="joRoom_enter"]
+[connection signal="mouse_exited" from="JoBedroom" to="." method="joRoon_exit"]
+[connection signal="pressed" from="JoBedroom" to="." method="PressJoROOM"]

@@ -1,0 +1,294 @@
+[gd_scene load_steps=19 format=3 uid="uid://dpvowmqrym27c"]
+
+[ext_resource type="Script" uid="uid://b3g25lice3pbe" path="res://scenes/start_menu.gd" id="1_m7x51"]
+[ext_resource type="Texture2D" uid="uid://b0tpg2kubiud8" path="res://ph/armored-business-case-money-open-top-down-white-background-isolated-160765169.webp" id="1_ouf4f"]
+[ext_resource type="Texture2D" uid="uid://cniujb64rinhx" path="res://ph/closed-black-leather-briefcase-isolated-600nw-1807081060.webp" id="2_fcv5n"]
+[ext_resource type="Texture2D" uid="uid://sodr0iocebp" path="res://ph/1000_F_532328806_oDZgCwtW3cyMNVesisdbleZmzyFEipF3-removebg-preview.png" id="2_thu50"]
+[ext_resource type="AudioStream" uid="uid://bojb7c7co1pg" path="res://sfx/335754__j1987__door_close.wav" id="3_h61rw"]
+[ext_resource type="PackedScene" uid="uid://bjp1b6hm65me1" path="res://scenes/label.tscn" id="6_4v6gu"]
+[ext_resource type="AudioStream" uid="uid://bd1w734e4jhcx" path="res://sfx/699355__valenspire__paper_twist_10.wav" id="6_nxjfj"]
+[ext_resource type="Texture2D" uid="uid://cbe88oupcmyn3" path="res://ph/Screenshot 2025-10-26 at 6.33.36 PM.png" id="8_5byqq"]
+[ext_resource type="AudioStream" uid="uid://v314mar3aaay" path="res://sfx/800225__cvltiv8r__water-metal-tone-2-cvltiv8r.wav" id="8_egh8s"]
+[ext_resource type="Script" uid="uid://bfhrbb72qv0yl" path="res://scenes/music_slider.gd" id="9_e58y3"]
+[ext_resource type="AudioStream" uid="uid://chni3icb73cbu" path="res://music/Dark/yeet.wav" id="10_e58y3"]
+[ext_resource type="AudioStream" uid="uid://blmwy5btvk7gm" path="res://sfx/strongwinds.wav" id="11_apowk"]
+[ext_resource type="Texture2D" uid="uid://bab2ogwf4o5no" path="res://ph/vector-cogs-symbol-on-white-background-settings-icon-illustration.jpg" id="12_vnuwp"]
+
+[sub_resource type="Animation" id="Animation_4v6gu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fcv5n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7853715, 0.5853713)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(267, 171)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxjfj"]
+_data = {
+&"RESET": SubResource("Animation_4v6gu")
+}
+
+[sub_resource type="Animation" id="Animation_u4qax"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_fcv5n"), ExtResource("1_ouf4f")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0.7853715, 0.5853713), Vector2(0.7853715, 0.82537067)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(267, 171), Vector2(267, -13.000015)]
+}
+
+[sub_resource type="Animation" id="Animation_5byqq"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e58y3"]
+_data = {
+&"close": SubResource("Animation_5byqq"),
+&"open": SubResource("Animation_u4qax")
+}
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_m7x51")
+
+[node name="White" type="ColorRect" parent="."]
+offset_left = -13.0
+offset_top = -8.0
+offset_right = 27.0
+offset_bottom = 32.0
+scale = Vector2(29.375242, 16.684698)
+
+[node name="BriefcaseTexture" type="TextureRect" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 267.0
+offset_top = 171.0
+offset_right = 1067.0
+offset_bottom = 1010.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7853715, 0.5853713)
+size_flags_horizontal = 4
+texture = ExtResource("2_fcv5n")
+
+[node name="CaseClick" type="AudioStreamPlayer2D" parent="BriefcaseTexture"]
+position = Vector2(398.53754, 649.3742)
+scale = Vector2(1.2732828, 1.2732828)
+stream = ExtResource("3_h61rw")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BriefcaseTexture"]
+libraries = {
+&"": SubResource("AnimationLibrary_nxjfj"),
+&"case": SubResource("AnimationLibrary_e58y3")
+}
+speed_scale = 4.0
+
+[node name="Notebook" type="TextureButton" parent="."]
+visible = false
+offset_left = 454.0
+offset_top = 341.0
+offset_right = 736.1471
+offset_bottom = 763.0
+rotation = 0.041145585
+scale = Vector2(0.26861665, 0.23836462)
+texture_normal = ExtResource("2_thu50")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Paper" type="AudioStreamPlayer2D" parent="Notebook"]
+position = Vector2(139.78986, 358.81082)
+stream = ExtResource("6_nxjfj")
+bus = &"SFX"
+
+[node name="Settings" type="TextureButton" parent="."]
+visible = false
+offset_left = 644.0001
+offset_top = 429.0
+offset_right = 1134.0001
+offset_bottom = 919.0
+scale = Vector2(0.1497829, 0.1497829)
+texture_normal = ExtResource("12_vnuwp")
+
+[node name="Bing" type="AudioStreamPlayer2D" parent="Settings"]
+position = Vector2(226.99442, 253.70055)
+stream = ExtResource("8_egh8s")
+bus = &"SFX"
+
+[node name="CaseMask" type="TextureButton" parent="."]
+offset_left = 455.0
+offset_top = 450.0
+offset_right = 495.0
+offset_bottom = 490.0
+scale = Vector2(6.3391457, 3.4887395)
+
+[node name="Label" parent="." instance=ExtResource("6_4v6gu")]
+offset_left = 0.99993896
+offset_top = 614.0
+offset_right = 334.37906
+offset_bottom = 654.0
+scale = Vector2(3.464524, 0.82308906)
+
+[node name="SettingsPanel" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 265.0
+offset_top = 118.00001
+offset_right = 956.0
+offset_bottom = 507.0
+scale = Vector2(0.8889699, 1.1201998)
+texture = ExtResource("8_5byqq")
+
+[node name="Music" type="HSlider" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 151.86115
+offset_top = 68.737724
+offset_right = 597.32043
+offset_bottom = 84.737724
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("9_e58y3")
+bus_name = "Music"
+
+[node name="SFX" type="HSlider" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 151.86115
+offset_top = 134.79736
+offset_right = 597.32043
+offset_bottom = 150.79736
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("9_e58y3")
+bus_name = "SFX"
+
+[node name="General" type="HSlider" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 151.86115
+offset_top = 195.50082
+offset_right = 597.32043
+offset_bottom = 211.50082
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("9_e58y3")
+bus_name = "Master"
+
+[node name="Music2" type="RichTextLabel" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 77.61792
+offset_top = 62.488842
+offset_right = 149.61136
+offset_bottom = 102.48884
+text = "Music"
+
+[node name="SFX2" type="RichTextLabel" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 97.86607
+offset_top = 131.22658
+offset_right = 137.86607
+offset_bottom = 171.22658
+text = "SFX"
+
+[node name="General2" type="RichTextLabel" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 106.86525
+offset_top = 191.93004
+offset_right = 146.86525
+offset_bottom = 231.93004
+text = "All"
+
+[node name="Exit" type="TextureButton" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 254.22679
+offset_top = 306.19537
+offset_right = 513.2268
+offset_bottom = 499.19537
+scale = Vector2(0.74552333, 0.2699029)
+texture_normal = ExtResource("8_5byqq")
+
+[node name="MusicTest" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(573, 150)
+stream = ExtResource("10_e58y3")
+autoplay = true
+bus = &"Music"
+
+[node name="SFXTest" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(573, 150)
+stream = ExtResource("11_apowk")
+volume_db = 3.029
+autoplay = true
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Notebook" to="." method="_on_notebook_mouse_entered"]
+[connection signal="mouse_exited" from="Notebook" to="." method="_on_notebook_mouse_exited"]
+[connection signal="pressed" from="Notebook" to="." method="_on_notebook_pressed"]
+[connection signal="finished" from="Notebook/Paper" to="." method="_on_paper_finished"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="CaseMask" to="." method="_on_case_mask_focus_entered"]
+[connection signal="focus_exited" from="CaseMask" to="." method="_on_case_mask_focus_exited"]
+[connection signal="mouse_entered" from="CaseMask" to="." method="_on_case_mask_mouse_entered"]
+[connection signal="mouse_exited" from="CaseMask" to="." method="_on_case_mask_mouse_exited"]
+[connection signal="pressed" from="CaseMask" to="." method="_on_case_mask_pressed"]
+[connection signal="pressed" from="SettingsPanel/Exit" to="." method="_on_exit_pressed"]

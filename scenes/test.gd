@@ -19,20 +19,27 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.code = "intro_done"
+	
 	# RESET EMOTES
 	$emote_window/Node/Axel.hide()
 	$emote_window/Node/Killer.hide()
 	$CarScene.hide()
 	$WhiteFADE.hide()
 	
-	one.play()
-	two.play()
-	three.play()
 	
-	#
+	three.play()
+	one.play()
+	
+	resetText("hide_all")
+	
+	await wait(4.0)
+	two.play()
+	
 	
 	alignWindow("Left")
 	emote("Axel","welp")
+	$bing.play()
 	await text("I'd like to know why.", "Medium", 4.0)
 	
 	alignWindow("Right")
@@ -124,12 +131,13 @@ func _ready() -> void:
 	
 	
 	#Transition to car scene
-	car.play()
+	
 	
 	$CarScene.modulate.a = 0.0
+	
 	$CarScene.show()
 	$CarScene/Fade.play("Fade_IN")
-	
+	car.play()
 	
 	alignWindow("Left")
 	emote("Axel" ,"sad")
@@ -205,7 +213,7 @@ func _ready() -> void:
 	vhs_start.play()
 	await wait(13.74)
 	
-	get_tree().change_scene_to_file("uid://dyl7so2ea0kr4")
+	get_tree().change_scene_to_file("uid://cob825eimiql2")
 	
 func emote(name: String, emote: String) -> void: 
 	#Ax_emote.play("hold")
@@ -263,6 +271,7 @@ func text(maintext: String, mode: String, seconds: float) -> void: #Actual text,
 	t_Text.visible_ratio = 0
 	t_Text.text = maintext
 	
+	
 	await get_tree().process_frame
 	
 	$text_default_window.show()
@@ -279,7 +288,16 @@ func text(maintext: String, mode: String, seconds: float) -> void: #Actual text,
 			t_Anim.play("Modes/HUGE")
 	await t_Anim.animation_finished
 	await get_tree().create_timer(num).timeout
+	print(seconds)
 	
+	$text_default_window/Node2D/clicker.show()
+	$text_default_window/Node2D/clicker/AnimationPlayer.play("in")
+
+	#await wait(1.0)
+	await press_click()
+	
+	$text_default_window/Node2D/clicker/AnimationPlayer.play("RESET")
+	$text_default_window/Node2D/clicker.hide()
 	return
 	
 func wait(seconds: float) -> void:
@@ -300,3 +318,9 @@ func resetText(Visible: String):
 	
 	#t_Text.text = ""
 	return
+
+func press_click():
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("click"): # default Space/Enter
+			break

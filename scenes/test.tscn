@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyiqdpj7qm6xo"]
+[gd_scene load_steps=22 format=3 uid="uid://dyiqdpj7qm6xo"]
 
 [ext_resource type="Script" uid="uid://b1y20vt5trl6w" path="res://scenes/test.gd" id="1_j5jx5"]
+[ext_resource type="Texture2D" uid="uid://d0wkxlmofccmu" path="res://ph/istockphoto-2151265136-612x612-removebg-preview.png" id="2_ajshl"]
 [ext_resource type="PackedScene" uid="uid://chr2f3auxy2bq" path="res://scenes/emote_window.tscn" id="2_bl13t"]
 [ext_resource type="Texture2D" uid="uid://cgi4ewfgtu8m4" path="res://images/placeholders/twoshot_placeholder.jpg" id="2_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://slgt01hj3j7o" path="res://scenes/text_default_window.tscn" id="3_iyx0m"]
@@ -209,3 +210,16 @@ scale = Vector2(3.464524, 0.82308906)
 position = Vector2(182, 582)
 stream = ExtResource("10_yk7ts")
 volume_db = -12.116
+
+[node name="Right" type="TextureButton" parent="."]
+offset_left = 1001.99994
+offset_top = 48.0
+offset_right = 1502.0
+offset_bottom = 2569.2722
+scale = Vector2(0.22131681, 0.22131681)
+texture_hover = ExtResource("2_ajshl")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

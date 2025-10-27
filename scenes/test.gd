@@ -324,3 +324,7 @@ func press_click():
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("click"): # default Space/Enter
 			break
+
+
+func _on_right_pressed() -> void:
+	get_tree().change_scene_to_file("uid://csja4fq7an5o5")
